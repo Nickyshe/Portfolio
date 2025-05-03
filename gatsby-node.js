@@ -7,9 +7,33 @@
 const path = require('path');
 const _ = require('lodash');
 
+// Add this before the exports.createPages
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  // Define the schema types
+  const typeDefs = `
+    type MarkdownRemarkFrontmatter {
+      title: String!
+      description: String
+      date: Date @dateformat
+      slug: String
+      tags: [String]
+      draft: Boolean
+    }
+
+    type MarkdownRemark implements Node {
+      frontmatter: MarkdownRemarkFrontmatter
+    }
+  `;
+
+  createTypes(typeDefs);
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const postTemplate = path.resolve(`src/templates/post.js`);
+  //const postTemplate = path.resolve(`src/templates/post.js`);
   const tagTemplate = path.resolve('src/templates/tag.js');
 
   const result = await graphql(`
@@ -42,15 +66,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   // Create post detail pages
-  const posts = result.data.postsRemark.edges;
+  // const posts = result.data.postsRemark.edges;
 
-  posts.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.slug,
-      component: postTemplate,
-      context: {},
-    });
-  });
+  // posts.forEach(({ node }) => {
+  //   createPage({
+  //     path: node.frontmatter.slug,
+  //     component: postTemplate,
+  //     context: {},
+  //   });
+  // });
 
   // Extract tag data from query
   const tags = result.data.tagsGroup.group;

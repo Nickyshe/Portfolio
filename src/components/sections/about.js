@@ -125,7 +125,23 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = [
+    'Version Control',
+    'Hugo',
+    'Docusaurus',
+    'Astro starlight',
+    'Mintlify',
+    'Markdown',
+    'JSON',
+    'Gitbook',
+    'Docsify',
+    'MKdocs',
+    'ReadMe',
+    'Postman',
+    'Swagger',
+    'Confluence',
+    'Notion',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,33 +151,36 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              Hello! My name is Judith, and I enjoy writing technical content. My interest in
+              technical writing began in 2023 when I was learning to code Android applications. I
+              used to be intimidated by technical documentation and coding, but I discovered that
+              writing about what I was learning helped me understand it better. I started my blog to
+              share my knowledge and support others who might be facing similar challenges.
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              Fast-forward to today, and I’ve had the privilege of contributing to open source
+              projects such as{' '}
+              <a href="https://docs.fedoraproject.org/en-US/gaming/">the Fedora Gaming SIG</a>,{' '}
+              <a href="https://technicalwritingmp.com/">Technical Writing Mentorship Program</a>,{' '}
+              Everything Open Source Africa, and{' '}
+              <a href="https://jetpath.codedynasty.dev/">JetPath,</a> a Javascript framework. My
+              main focus now is writing developer documentation, technical articles, and tutorials.
             </p>
 
             <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              Recently, I led and collaborated with a team of technical writers to migrate a
+              documentation site from Hugo to Docusaurus I am also currently leading the initiatives
+              of Fedora Gaming SIG to improve the documentation of the project.
+            </p>
+            <p>
+              You can find my articles on <a href="https://judy.hashnode.dev/">Hashnode</a>,{' '}
+              <a href="https://builtin.com/authors/judith-etugbo">Builtin</a>,{' '}
+              <a href="https://medium.com/@judypearls200">Medium</a>,{' '}
+              <a href="https://hackernoon.com/u/judithetugbo">Hackernoon.</a>,{' '}
             </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
+            <p>Here are the tools and technologies I have worked with</p>
           </div>
 
           <ul className="skills-list">
@@ -173,7 +192,7 @@ const About = () => {
           <div className="wrapper">
             <StaticImage
               className="img"
-              src="../../images/me.jpg"
+              src="../../images/pfp.jpg"
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}

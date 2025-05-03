@@ -66,35 +66,35 @@ const TagTemplate = ({ pageContext, data, location }) => {
           </span>
         </h1>
 
-        <ul className="fancy-list">
-          {edges.map(({ node }) => {
-            const { title, slug, date, tags } = node.frontmatter;
-            return (
-              <li key={slug}>
-                <h2>
-                  <Link to={slug}>{title}</Link>
-                </h2>
-                <p className="subtitle">
-                  <time>
-                    {new Date(date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  <span>&nbsp;&mdash;&nbsp;</span>
-                  {tags &&
-                    tags.length > 0 &&
-                    tags.map((tag, i) => (
-                      <Link key={i} to={`/pensieve/tags/${kebabCase(tag)}/`} className="tag">
-                        #{tag}
-                      </Link>
-                    ))}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
+        {/*Update the edges.map section to:*/}
+
+        {edges.map(({ node }) => {
+          const { title, date, tags } = node.frontmatter;
+          return (
+            <li key={title}>
+              <h2>
+                <Link to={`/blog/${title}`}>{title}</Link>
+              </h2>
+              <p className="subtitle">
+                <time>
+                  {new Date(date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <span>&nbsp;&mdash;&nbsp;</span>
+                {tags &&
+                  tags.length > 0 &&
+                  tags.map((tag, i) => (
+                    <Link key={i} to={`/pensieve/tags/${kebabCase(tag)}/`} className="tag">
+                      #{tag}
+                    </Link>
+                  ))}
+              </p>
+            </li>
+          );
+        })}
       </StyledTagsContainer>
     </Layout>
   );
@@ -122,9 +122,10 @@ TagTemplate.propTypes = {
   }),
   location: PropTypes.object,
 };
+// Replace the existing pageQuery with:
 
 export const pageQuery = graphql`
-  query($tag: String!) {
+  query ($tag: String!) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
@@ -135,9 +136,7 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
-            description
             date
-            slug
             tags
           }
         }
