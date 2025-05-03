@@ -17,6 +17,9 @@
   "license": "MIT",
   "browserslist": "> 0.25%, not dead",
   "scripts": {
+    "clean-cache": "gatsby clean && npm cache clean --force",
+    "fresh-install": "npm run clean-cache && rimraf node_modules && npm install",
+    "fresh-start": "npm run fresh-install && gatsby develop",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"/*.{js,jsx,json,md}\"",
@@ -80,7 +83,8 @@
     "eslint-plugin-react": "^7.37.5",
     "gatsby-remark-code-titles": "^1.1.0",
     "husky": "^6.0.0",
-    "lint-staged": "^10.1.2",
-    "prettier": "^2.2.1"
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "rimraf": "^6.0.1"
   }
 }
