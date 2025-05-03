@@ -18,7 +18,7 @@
   "browserslist": "> 0.25%, not dead",
   "scripts": {
     "build": "gatsby clean && gatsby build",
-    "deploy": "gatsby clean && gatsby build && netlify deploy --prod",
+    "deploy": "gatsby clean && gatsby build && gh-pages-deploy -d public -b judith/etugbo-portfolio",
     "clean-cache": "gatsby clean && npm cache clean --force",
     "fresh-install": "npm run clean-cache && rimraf node_modules && npm install",
     "fresh-start": "npm run fresh-install && gatsby develop",
