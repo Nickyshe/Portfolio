@@ -2,6 +2,10 @@
   "name": "v4",
   "description": "Personal Website V4",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=18.16.0 <=20.x",
+    "npm": ">=9.0.0"
+  },
   "author": "Brittany Chiang <brittany.chiang@gmail.com>",
   "repository": {
     "type": "git",
